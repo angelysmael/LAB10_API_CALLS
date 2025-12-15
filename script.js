@@ -99,3 +99,41 @@ Copy code
     showMessage("error", "Network error: POST request failed.");
   }
 });
+
+putForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  clearUI();
+
+  const id = document.getElementById("putId").value.trim();
+  const title = document.getElementById("putTitle").value.trim();
+  const body = document.getElementById("putBody").value.trim();
+
+  if (!id || Number(id) <= 0) {
+    showMessage("error", "Invalid input: enter a valid post id (1 or higher).");
+    return;
+  }
+  if (!title || !body) {
+    showMessage("error", "Invalid input: title and body cannot be empty.");
+    return;
+  }
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("PUT", `https://jsonplaceholder.typicode.com/posts/${id}`);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+
+  xhr.onload = () => {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      const data = JSON.parse(xhr.responseText);
+      showMessage("success", `PUT success! Updated post #${id} (fake update)`);
+      renderPost(data);
+    } else {
+      showMessage("error", `Server error (HTTP ${xhr.status})`);
+    }
+  };
+
+  xhr.onerror = () => {
+    showMessage("error", "Network error: PUT request failed.");
+  };
+
+  xhr.send(JSON.stringify({ id: Number(id), title, body, userId: 1 }));
+});
