@@ -26,3 +26,21 @@ function renderPost(data) {
     `Title: ${data.title}\n\n` +
     `Body:\n${data.body}\n`;
 }
+btnFetch.addEventListener("click", async () => {
+  clearUI();
+
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1");
+
+    if (!res.ok) {
+      showMessage("error", `Server error (HTTP ${res.status})`);
+      return;
+    }
+
+    const data = await res.json();
+    showMessage("success", "GET (fetch) success!");
+    renderPost(data);
+  } catch (err) {
+    showMessage("error", "Network error: check your internet / URL.");
+  }
+});
