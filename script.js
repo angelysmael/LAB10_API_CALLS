@@ -26,6 +26,11 @@ function renderPost(data) {
     `Title: ${data.title}\n\n` +
     `Body:\n${data.body}\n`;
 }
+function serverOrNetworkMessage(err, status) {
+  if (status) return `Server error (HTTP ${status})`;
+  if (err instanceof TypeError) return "Network error: check your internet / URL.";
+  return "Something went wrong.";
+}
 btnFetch.addEventListener("click", async () => {
   clearUI();
 
