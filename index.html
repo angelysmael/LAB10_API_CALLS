@@ -1,73 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lab 10 - API Calls</title>
-  <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab 10 - API Calls</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-<main class="container">
-  <header class="card">
-    <h1>Lab 10: API Calls</h1>
-    <p>Practicing GET, POST, PUT using fetch() and XMLHttpRequest (XHR).</p>
-    <section class="card">
-  <h2>GET Requests</h2>
-  <div class="btn-row">
-    <button id="btnFetch">Fetch Data with fetch()</button>
-    <button id="btnXHR">Fetch Data with XHR</button>
-    <section class="card results">
-        <section class="card">
-  <h2>POST (Create a Post)</h2>
-  <form id="postForm" class="form">
-    <label>
-      Title
-      <input id="postTitle" type="text" placeholder="Enter title" />
-    </label>
+    <main class="container">
+        <header class="card">
+            <h1>Lab 10: API Calls</h1>
+            <p>Practicing GET, POST, PUT using fetch() and XMLHttpRequest (XHR).</p>
+            <section class="card">
+                <h2>GET Requests</h2>
+                <div class="btn-row">
+                    <button id="btnFetch">Fetch Data with fetch()</button>
+                    <button id="btnXHR">Fetch Data with XHR</button>
+                    <section class="card results">
+                        <section class="card">
+                            <h2>POST (Create a Post)</h2>
+                            <form id="postForm" class="form">
+                                <label>
+                                    Title
+                                    <input id="postTitle" type="text" placeholder="Enter title" />
+                                </label>
 
-    <label>
-      Body
-      <textarea id="postBody" rows="4" placeholder="Enter body"></textarea>
-    </label>
+                                <label>
+                                    Body
+                                    <textarea id="postBody" rows="4" placeholder="Enter body"></textarea>
+                                </label>
 
-    <button type="submit">Send POST</button>
-  </form>
-</section>
-<section class="card">
-  <h2>PUT (Update a Post)</h2>
-  <form id="putForm" class="form">
-    <label>
-      Post ID to update
-      <input id="putId" type="number" min="1" placeholder="e.g. 1" />
-    </label>
+                                <button type="submit">Send POST</button>
+                            </form>
+                        </section>
+                        <section class="card">
+                            <h2>PUT (Update a Post)</h2>
+                            <form id="putForm" class="form">
+                                <label>
+                                    Post ID to update
+                                    <input id="putId" type="number" min="1" placeholder="e.g. 1" />
+                                </label>
 
-    <label>
-      New Title
-      <input id="putTitle" type="text" placeholder="Enter new title" />
-    </label>
+                                <label>
+                                    New Title
+                                    <input id="putTitle" type="text" placeholder="Enter new title" />
+                                </label>
 
-    <label>
-      New Body
-      <textarea id="putBody" rows="4" placeholder="Enter new body"></textarea>
-    </label>
+                                <label>
+                                    New Body
+                                    <textarea id="putBody" rows="4" placeholder="Enter new body"></textarea>
+                                </label>
 
-    <button type="submit">Send PUT (XHR)</button>
-  </form>
-</section>
-<section class="card">
-  <h2>Optional Feature (DELETE)</h2>
-  <div class="btn-row">
-    <button id="btnDelete">Delete Post #1 (fetch)</button>
-  </div>
-</section>
-  <h2>Results</h2>
-  <div id="message" class="message"></div>
-  <div id="output" class="output"></div>
-</section>
-  </div>
-</section>
-  </header>
-</main>
-  <script src="script.js"></script>
+                                <button type="submit">Send PUT (XHR)</button>
+                            </form>
+                        </section>
+                        <section class="card">
+                            <h2>Optional Feature (DELETE)</h2>
+                            <div class="btn-row">
+                                <button id="btnDelete">Delete Post #1 (fetch)</button>
+                            </div>
+                        </section>
+                        <h2>Results</h2>
+                        <div id="message" class="message"></div>
+                        <div id="output" class="output"></div>
+                    </section>
+                </div>
+            </section>
+        </header>
+    </main>
+    <script src="script.js"></script>
 </body>
+
 </html>

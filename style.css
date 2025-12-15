@@ -1,62 +1,70 @@
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #0b1220;
-  color: #e8eefc;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0b1220;
+    color: #e8eefc;
 }
 
 .container {
-  width: min(950px, 92%);
-  margin: 24px auto;
-  display: grid;
-  gap: 16px;
+    width: min(950px, 92%);
+    margin: 24px auto;
+    display: grid;
+    gap: 16px;
 }
 
 .card {
-  padding: 18px;
-  border: 1px solid #22304d;
-  border-radius: 14px;
-  background: rgba(255,255,255,0.03);
+    padding: 18px;
+    border: 1px solid #22304d;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.03);
 }
+
 .btn-row {
-  display: flex;
-  gap: 12px;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
 button {
-  border: none;
-  padding: 10px 14px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-weight: 600;
-  background: #2c62ff;
-  color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    background: #2c62ff;
+    color: white;
 }
 
-button:hover { opacity: 0.95; }
+button:hover {
+    opacity: 0.95;
+}
 
 .form {
-  display: grid;
-  gap: 10px;
+    display: grid;
+    gap: 10px;
 }
 
 label {
-  display: grid;
-  gap: 6px;
-  font-size: 0.95rem;
+    display: grid;
+    gap: 6px;
+    font-size: 0.95rem;
 }
 
-input, textarea {
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #22304d;
-  background: #0f1a33;
-  color: #e8eefc;
+input,
+textarea {
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #22304d;
+    background: #0f1a33;
+    color: #e8eefc;
 }
 
 @media (max-width: 600px) {
-  button { width: 100%; }
+    button {
+        width: 100%;
+    }
 }
