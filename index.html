@@ -33,6 +33,27 @@
     <button type="submit">Send POST</button>
   </form>
 </section>
+<section class="card">
+  <h2>PUT (Update a Post)</h2>
+  <form id="putForm" class="form">
+    <label>
+      Post ID to update
+      <input id="putId" type="number" min="1" placeholder="e.g. 1" />
+    </label>
+
+    <label>
+      New Title
+      <input id="putTitle" type="text" placeholder="Enter new title" />
+    </label>
+
+    <label>
+      New Body
+      <textarea id="putBody" rows="4" placeholder="Enter new body"></textarea>
+    </label>
+
+    <button type="submit">Send PUT (XHR)</button>
+  </form>
+</section>
   <h2>Results</h2>
   <div id="message" class="message"></div>
   <div id="output" class="output"></div>
