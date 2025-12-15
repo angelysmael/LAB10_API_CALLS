@@ -44,3 +44,27 @@ btnFetch.addEventListener("click", async () => {
     showMessage("error", "Network error: check your internet / URL.");
   }
 });
+btnXHR.addEventListener("click", () => {
+  clearUI();
+
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://jsonplaceholder.typicode.com/posts/2");
+
+  xhr.onload = () => {
+    if (xhr.status >= 200 && xhr.status < 300) {
+      const data = JSON.parse(xhr.responseText);
+      showMessage("success", "GET (XHR) success!");
+      renderPost(data);
+    } else {
+      showMessage("error", `Server error (HTTP ${xhr.status})`);
+    }
+  };
+
+  xhr.onerror = () => {
+    showMessage("error", "Network error: XHR request failed.");
+  };
+
+  xhr.send();
+});
+bash
+Copy code
