@@ -142,3 +142,22 @@ putForm.addEventListener("submit", (e) => {
 
   xhr.send(JSON.stringify({ id: Number(id), title, body, userId: 1 }));
 });
+btnDelete.addEventListener("click", async () => {
+  clearUI();
+
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+      method: "DELETE"
+    });
+
+    if (!res.ok) {
+      showMessage("error", `Server error (HTTP ${res.status})`);
+      return;
+    }
+
+    showMessage("success", "DELETE success! (Fake delete on JSONPlaceholder)");
+    output.textContent = "Post #1 deleted (demo).";
+  } catch (err) {
+    showMessage("error", serverOrNetworkMessage(err));
+  }
+});
