@@ -68,3 +68,34 @@ btnXHR.addEventListener("click", () => {
 });
 bash
 Copy code
+ postForm.addEventListener("submit", async (e) => {
+  e.preventDefault();
+  clearUI();
+
+  const title = document.getElementById("postTitle").value.trim();
+  const body = document.getElementById("postBody").value.trim();
+
+  if (!title || !body) {
+    showMessage("error", "Invalid input: title and body cannot be empty.");
+    return;
+  }
+
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ title, body, userId: 1 })
+    });
+
+    if (!res.ok) {
+      showMessage("error", `Server error (HTTP ${res.status})`);
+      return;
+    }
+
+    const data = await res.json();
+    showMessage("success", "POST success! (Fake create on JSONPlaceholder)");
+    renderPost(data);
+  } catch (err) {
+    showMessage("error", "Network error: POST request failed.");
+  }
+});
